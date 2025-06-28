@@ -33,7 +33,6 @@ int PhoneBook::getTotalContacts()
 
 string PhoneBook::formatField(string text) const
 {
-  // If longer than 10 characters (including spaces), truncate with dot
   if (text.length() > 10) {
     return text.substr(0, 9) + ".";
   }
@@ -42,8 +41,8 @@ string PhoneBook::formatField(string text) const
 
 void PhoneBook::displayPhoneBook()
 {
-  std::cout << std::setw(10) << std::right << "\033[1mINDEX" << " | ";
-  std::cout << std::setw(10) << std::right << "FIRST NAME" << " | ";
+  std::cout << std::setw(10) << std::right << YELLOW << "\033[1mINDEX\033[0m" << RESET << " | ";
+  std::cout << std::setw(10) << std::right << "\033[1mFIRST NAME" << " | ";
   std::cout << std::setw(10) << std::right << "LAST NAME" << " | ";
   std::cout << std::setw(10) << std::right << "NICK NAME\033[0m" << std::endl;
 

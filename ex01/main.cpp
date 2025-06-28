@@ -81,13 +81,11 @@ int main()
     else if (input.compare("SEARCH") == 0)
     {
       if (phonebook.getTotalContacts() == 0)
-      {
         std::cout << std::endl << "\033[31mPhonebook is empty. Add some contacts first!\033[0m" << std::endl;
-      }
       else
       {
-        int search_index;
         std::cout << std::endl;
+        int search_index;
         phonebook.displayPhoneBook();
         while (true)
         {
@@ -98,12 +96,12 @@ int main()
             std::cout << std::endl << "\033[31mInvalid input. Please enter a number.\033[0m" << std::endl;
             std::cin.clear();            // Clear error flags
             std::cin.ignore(1000, '\n'); // Skip bad input
-            continue;                    // Go back to start of while loop
+            continue;
           }
           if (search_index > 0 && search_index <= 8)
           {
             std::cout << std::endl;
-            phonebook.searchContact(search_index - 1); // Convert user index (1-8) to array index (0-7)
+            phonebook.searchContact(search_index - 1);
             break;
           }
           else
