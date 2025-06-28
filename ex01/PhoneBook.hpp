@@ -7,10 +7,18 @@ using std::string;
 
 class PhoneBook {
   private:
-  
+    Contact contacts[8];
+    int index;
+    int totalContacts;
+    string formatField(string text) const;
+
   public:
     PhoneBook();
     ~PhoneBook();
+    void addContact(Contact contact);
+    void searchContact(int index);
+    int getTotalContacts();
+    void displayPhoneBook();
 };
 
 #endif
