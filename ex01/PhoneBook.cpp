@@ -31,7 +31,7 @@ int PhoneBook::getTotalContacts()
   return totalContacts;
 }
 
-string PhoneBook::formatField(string text) const
+std::string PhoneBook::formatField(std::string text) const
 {
   if (text.length() > 10) {
     return text.substr(0, 9) + ".";

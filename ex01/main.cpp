@@ -1,7 +1,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-void contactPrompt(string &fname, string &lname, string &nick, string &phone, string &secret)
+void contactPrompt(std::string &fname, std::string &lname, std::string &nick, std::string &phone, std::string &secret)
 {
 
   do
@@ -47,7 +47,7 @@ void contactPrompt(string &fname, string &lname, string &nick, string &phone, st
 
 int main()
 {
-  string input;
+  std::string input;
   PhoneBook phonebook;
 
   while (input.compare("EXIT") != 0)
@@ -58,7 +58,7 @@ int main()
     {
       std::cout << std::endl;
       std::cin.ignore(); // Clear leftover newline from reading "ADD"
-      string fname, lname, nick, phone, secret;
+      std::string fname, lname, nick, phone, secret;
       if (phonebook.getTotalContacts() == 0)
       {
         for (int i = 0; i < 8; ++i)

@@ -2,23 +2,22 @@
 #define CONTACT_HPP
 
 #include <iostream>
-using std::string;
 
 class Contact
 {
 private:
-  string firstname;
-  string lastname;
-  string nickname;
-  string phone;
-  string secret;
+  std::string firstname;
+  std::string lastname;
+  std::string nickname;
+  std::string phone;
+  std::string secret;
 
 public:
-  string getFirstname() const;
-  string getLastname() const;
-  string getNickname() const;
-  string getValues() const;
-  Contact(string firstname = "", string lastname = "", string nickname = "", string phone = "", string secret = "");
+  std::string getFirstname() const;
+  std::string getLastname() const;
+  std::string getNickname() const;
+  std::string getValues() const;
+  Contact(std::string firstname = "", std::string lastname = "", std::string nickname = "", std::string phone = "", std::string secret = "");
   ~Contact();
 };
 

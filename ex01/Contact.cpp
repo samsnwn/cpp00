@@ -1,6 +1,6 @@
 #include "Contact.hpp"
 
-Contact::Contact(string firstname, string lastname, string nickname, string phone, string secret)
+Contact::Contact(std::string firstname, std::string lastname, std::string nickname, std::string phone, std::string secret)
 {
   this->firstname=firstname;
   this->lastname=lastname;
@@ -13,7 +13,7 @@ Contact::~Contact()
 {
 }
 
-string Contact::getValues() const 
+std::string Contact::getValues() const 
 {
   return  "\033[1mFirst name: \033[0m" + firstname + "\n" + 
           "\033[1mLast name: \033[0m" + lastname + "\n" +
@@ -22,15 +22,15 @@ string Contact::getValues() const
           "\033[1mDarkest Secret: \033[0m" + secret + "\n";
 }
 
-string Contact::getFirstname() const
+std::string Contact::getFirstname() const
 {
   return firstname;
 }
-string Contact::getLastname() const
+std::string Contact::getLastname() const
 {
   return lastname;
 }
-string Contact::getNickname() const
+std::string Contact::getNickname() const
 {
   return nickname;
 }
