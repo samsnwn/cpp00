@@ -1,13 +1,8 @@
 #include "PhoneBook.hpp"
-#include <iomanip>
 
-#define YELLOW "\033[33m"
-#define RESET "\033[0m"
-
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : _index(0), _totalContacts(0)
 {
-  index = 0;
-  totalContacts = 0;
+
 }
 
 PhoneBook::~PhoneBook()
@@ -16,22 +11,26 @@ PhoneBook::~PhoneBook()
 
 void PhoneBook::addContact(Contact contact)
 {
-  contacts[index] = contact;
-  index = (index + 1) % 8;
-  totalContacts++;
+  _contacts[_index] = contact;
+  _index = (_index + 1) % 8;
+  _totalContacts++;
 }
 
-void PhoneBook::searchContact(int index)
+void PhoneBook::searchContact(int index) const
 {
-  std::cout << contacts[index].getValues() << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(FIRST) << std::endl;
+    std::cout << BOLD << "Last name: " << RESET << _contacts[index].getData(LAST) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(NICK) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(PHONE) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(SECRET) << std::endl;
 }
 
-int PhoneBook::getTotalContacts()
+int PhoneBook::getTotalContacts() const
 {
-  return totalContacts;
+  return _totalContacts;
 }
 
-std::string PhoneBook::formatField(std::string text) const
+std::string PhoneBook::_formatField(std::string text) const
 {
   if (text.length() > 10) {
     return text.substr(0, 9) + ".";
@@ -39,20 +38,20 @@ std::string PhoneBook::formatField(std::string text) const
   return text;
 }
 
-void PhoneBook::displayPhoneBook()
+void PhoneBook::displayPhoneBook() const
 {
-  std::cout << std::setw(10) << std::right << YELLOW << "\033[1mINDEX\033[0m" << RESET << " | ";
-  std::cout << std::setw(10) << std::right << "\033[1mFIRST NAME" << " | ";
-  std::cout << std::setw(10) << std::right << "LAST NAME" << " | ";
-  std::cout << std::setw(10) << std::right << "NICK NAME\033[0m" << std::endl;
+  std::cout << std::setw(6) << std::right << YELLOW << BOLD << "INDEX" << RESET << " | ";
+  std::cout << std::setw(6) << std::right << BOLD << "FIRST NAME" << " | ";
+  std::cout << std::setw(7) << std::right << "LAST NAME" << " | ";
+  std::cout << std::setw(6) << std::right << "NICK NAME" << RESET << std::endl;
 
-  int contactsToShow = (totalContacts <= 8) ? totalContacts : 8;
+  int contactsToShow = (_totalContacts <= 8) ? _totalContacts : 8;
 
   for (int i = 0; i < contactsToShow; i++)
   {
     std::cout << std::setw(10) << std::right << YELLOW << i + 1 << RESET << " | ";
-    std::cout << std::setw(10) << std::right << formatField(contacts[i].getFirstname()) << " | ";
-    std::cout << std::setw(10) << std::right << formatField(contacts[i].getLastname()) << " | ";
-    std::cout << std::setw(10) << std::right << formatField(contacts[i].getNickname()) << std::endl;
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(FIRST)) << " | ";
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(LAST)) << " | ";
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(NICK)) << std::endl;
   }
 }

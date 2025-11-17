@@ -59,24 +59,25 @@ int main()
       std::cout << std::endl;
       std::cin.ignore(); // Clear leftover newline from reading "ADD"
       std::string fname, lname, nick, phone, secret;
-      if (phonebook.getTotalContacts() == 0)
-      {
-        for (int i = 0; i < 8; ++i)
-        {
+      // if (phonebook.getTotalContacts() == 0)
+      // {
+        // for (int i = 0; i < 8; ++i)
+        // {
           contactPrompt(fname, lname, nick, phone, secret);
           Contact newContact(fname, lname, nick, phone, secret);
           phonebook.addContact(newContact);
-          std::cout << "\033[32mContact #" << i + 1 << " created\033[0m" << std::endl;
+          std::cout << "\033[32mContact created\033[0m" << std::endl;
           std::cout << std::endl;
-        }
-      }
-      else if (phonebook.getTotalContacts() > 0)
-      {
-        contactPrompt(fname, lname, nick, phone, secret);
-        Contact newContact(fname, lname, nick, phone, secret);
-        phonebook.addContact(newContact);
-        std::cout << std::endl;
-      }
+        // }
+      // }
+      // else if (phonebook.getTotalContacts() > 0)
+      // {
+      //   contactPrompt(fname, lname, nick, phone, secret);
+      //   Contact newContact(fname, lname, nick, phone, secret);
+      //   phonebook.addContact(newContact);
+      //   std::cout << "\033[32mNew contact created\033[0m" << std::endl;
+      //   std::cout << std::endl;
+      // }
     }
     else if (input.compare("SEARCH") == 0)
     {
@@ -93,7 +94,7 @@ int main()
           std::cout << "Search by index: ";
           if (!(std::cin >> search_index))
           {
-            std::cout << std::endl << "\033[31mInvalid input. Please enter a number.\033[0m" << std::endl;
+            std::cout << std::endl << "\033[31mInvalid input. Please enter a number of range [1-8].\033[0m" << std::endl;
             std::cin.clear();            // Clear error flags
             std::cin.ignore(1000, '\n'); // Skip bad input
             continue;

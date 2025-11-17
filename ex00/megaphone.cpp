@@ -1,5 +1,4 @@
 #include <iostream>
-using std::string;
 
 int main(int argc, char *argv[])
 {
@@ -9,8 +8,14 @@ int main(int argc, char *argv[])
   {
     for (int i = 1; i < argc; i++)
     {
-      for (int j = 0; argv[i][j] != '\0'; j++)
-        std::cout << (char)toupper(argv[i][j]);
+      std::string arg = argv[i];
+      for (int j = 0; arg[j] != '\0'; j++)
+      {
+        if (std::isalpha(arg[j]))
+          std::cout << std::toupper(arg[j]);
+        else
+          std::cout << arg[j];
+      }
     }
   }
   std::cout << std::endl;

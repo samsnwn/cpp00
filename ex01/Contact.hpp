@@ -3,22 +3,30 @@
 
 #include <iostream>
 
+enum Data
+{
+  FIRST,
+  LAST,
+  NICK,
+  PHONE,
+  SECRET
+};
+
 class Contact
 {
 private:
-  std::string firstname;
-  std::string lastname;
-  std::string nickname;
-  std::string phone;
-  std::string secret;
-
+  std::string _firstname;
+  std::string _lastname;
+  std::string _nickname;
+  std::string _phone;
+  std::string _secret;
+  
 public:
-  std::string getFirstname() const;
-  std::string getLastname() const;
-  std::string getNickname() const;
-  std::string getValues() const;
-  Contact(std::string firstname = "", std::string lastname = "", std::string nickname = "", std::string phone = "", std::string secret = "");
+  Contact();
+  Contact(std::string first, std::string last, std::string nick, std::string phone, std::string secret);
   ~Contact();
+  std::string getData(Data data) const;
 };
+
 
 #endif
