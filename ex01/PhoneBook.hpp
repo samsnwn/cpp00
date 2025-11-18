@@ -19,7 +19,7 @@ private:
 public:
   PhoneBook();
   ~PhoneBook();
-  void addContact(Contact contact);
+  int addContact(Contact contact);
   void searchContact(int index) const;
   int getTotalContacts() const;
   void displayPhoneBook() const;

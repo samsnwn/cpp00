@@ -9,11 +9,13 @@ PhoneBook::~PhoneBook()
 {
 }
 
-void PhoneBook::addContact(Contact contact)
+int PhoneBook::addContact(Contact contact)
 {
+  int slotUsed = _index;
   _contacts[_index] = contact;
   _index = (_index + 1) % 8;
   _totalContacts++;
+  return slotUsed + 1;
 }
 
 void PhoneBook::searchContact(int index) const
