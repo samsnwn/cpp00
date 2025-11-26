@@ -3,15 +3,6 @@
 
 #include <iostream>
 
-enum Data
-{
-  FIRST,
-  LAST,
-  NICK,
-  PHONE,
-  SECRET
-};
-
 class Contact
 {
 private:
@@ -22,6 +13,15 @@ private:
   std::string _secret;
   
 public:
+  enum Data
+  {
+    FIRST,
+    LAST,
+    NICK,
+    PHONE,
+    SECRET
+  };
+
   Contact();
   Contact(std::string first, std::string last, std::string nick, std::string phone, std::string secret);
   ~Contact();

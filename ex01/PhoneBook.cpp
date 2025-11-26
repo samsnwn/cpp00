@@ -20,11 +20,11 @@ int PhoneBook::addContact(Contact contact)
 
 void PhoneBook::searchContact(int index) const
 {
-    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(FIRST) << std::endl;
-    std::cout << BOLD << "Last name: " << RESET << _contacts[index].getData(LAST) << std::endl;
-    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(NICK) << std::endl;
-    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(PHONE) << std::endl;
-    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(SECRET) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(Contact::FIRST) << std::endl;
+    std::cout << BOLD << "Last name: " << RESET << _contacts[index].getData(Contact::LAST) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(Contact::NICK) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(Contact::PHONE) << std::endl;
+    std::cout << BOLD << "First name: " << RESET << _contacts[index].getData(Contact::SECRET) << std::endl;
 }
 
 int PhoneBook::getTotalContacts() const
@@ -52,8 +52,8 @@ void PhoneBook::displayPhoneBook() const
   for (int i = 0; i < contactsToShow; i++)
   {
     std::cout << std::setw(10) << std::right << YELLOW << i + 1 << RESET << " | ";
-    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(FIRST)) << " | ";
-    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(LAST)) << " | ";
-    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(NICK)) << std::endl;
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(Contact::FIRST)) << " | ";
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(Contact::LAST)) << " | ";
+    std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getData(Contact::NICK)) << std::endl;
   }
 }
